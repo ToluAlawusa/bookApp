@@ -1,0 +1,28 @@
+{
+    "name": "seamless/brainfood",
+    "authors": [
+        {
+            "name": "Tolulope Alawusa",
+            "email": "tolulopealawusa@gmail.com"
+        }
+    ],
+
+     "autoload" : {
+    	"psr-4":{
+    		"Brainfood\\": "src/brainfood"
+    	}
+
+
+    },
+
+    "require": {
+        "filp/whoops": "^2.1",
+        "duncan3dc/blade": "^3.3",
+        "altorouter/altorouter": "^1.2",
+        "robmorgan/phinx": "^0.6.5",
+        "vlucas/phpdotenv": "^2.4",
+        "respect/validation": "^1.1",
+        "illuminate/database": "^5.3",
+        "symfony/var-dumper": "^3.2"
+    }
+}
