@@ -20,7 +20,13 @@ $router->map( 'GET', '/usercatalogue/[i:id]/', 'Brainfood\\controllers\\UserCata
 $router->map( 'GET', '/userbookpreview/[i:id]/', 'Brainfood\\controllers\\UserBookPreview@showBookPreview', 'showBookPreview');
 $router->map( 'POST', '/userbookpreview/[i:id]/', 'Brainfood\\controllers\\UserBookPreview@doAddComments', 'doAddComments');
 
-// routes responsible for showing cart, updating cart and deleting from cart 
+// routes responsible for showing cart, updating cart, adding to cart and deleting from cart
+
+if(isset($_SESSION['user_id'])) {
+
+	$router->map( 'GET', '/usercart/[i:id]/', 'Brainfood\\controllers\\UserCart@showUserCart', 'showUserCart');
+}
+
 $router->map( 'POST', '/usercart/[i:id]/', 'Brainfood\\controllers\\UserCart@addToCart', 'addToCart');
 $router->map( 'POST', '/userdeletecart/[i:id]/', 'Brainfood\\controllers\\UserDeleteCart@deleteCart', 'deleteCart');
 $router->map( 'POST', '/userupdatecart/[i:id]/', 'Brainfood\\controllers\\UserUpdateCart@updateCart', 'updateCart');
