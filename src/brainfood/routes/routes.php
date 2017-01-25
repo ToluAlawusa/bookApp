@@ -21,7 +21,6 @@ $router->map( 'GET', '/userbookpreview/[i:id]/', 'Brainfood\\controllers\\UserBo
 $router->map( 'POST', '/userbookpreview/[i:id]/', 'Brainfood\\controllers\\UserBookPreview@doAddComments', 'doAddComments');
 
 // routes responsible for showing cart, updating cart, adding to cart and deleting from cart
-
 if(isset($_SESSION['user_id'])) {
 
 	$router->map( 'GET', '/usercart/[i:id]/', 'Brainfood\\controllers\\UserCart@showUserCart', 'showUserCart');
@@ -30,3 +29,10 @@ if(isset($_SESSION['user_id'])) {
 $router->map( 'POST', '/usercart/[i:id]/', 'Brainfood\\controllers\\UserCart@addToCart', 'addToCart');
 $router->map( 'POST', '/userdeletecart/[i:id]/', 'Brainfood\\controllers\\UserDeleteCart@deleteCart', 'deleteCart');
 $router->map( 'POST', '/userupdatecart/[i:id]/', 'Brainfood\\controllers\\UserUpdateCart@updateCart', 'updateCart');
+
+// routes for showing the checkout page and checking out the cart into the orders table
+$router->map( 'GET', '/usercheckout/[i:id]/', 'Brainfood\\controllers\\UserCheckout@showUserCheckout', 'showUserCheckout');
+$router->map( 'POST', '/usercheckout/[i:id]/', 'Brainfood\\controllers\\UserCheckout@doCheckout', 'doCheckout');
+
+// route that handles logout
+$router->map( 'GET', '/userlogout', 'Brainfood\\controllers\\UserLogout@logout', 'logout');
