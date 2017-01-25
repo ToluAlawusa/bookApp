@@ -2,9 +2,8 @@
 @section('browsertitle')userbookpreview @stop
 @section('content')
 
-    <!--  @if (isset($_SESSION['errmsg']))
-    <p class="global-error">{!! $_SESSION['errmsg'] !!}</p>
-    @endif -->
+    
+    @if(isset($errors['quan'])) <span class="err">{!! $errors['quan'] !!}</span> @endif
     <div class="book-display">
      <div class="display-book" style="background: url({!! $prodid->image !!}) 
        no-repeat center; background-size: cover; width: 168px;

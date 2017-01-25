@@ -24,31 +24,41 @@ class UserCart extends BaseController {
 
     public function addToCart($id) {
 
-        $udd = $_SESSION['user_id'];
+        $error = $this->_validator->isValid($this->_validation_rules);
 
-    	if(isset($_SESSION['user_id'])) {
+        if(empty($error)) {
 
-            $chk = Cart::checkProduct($id);
 
-            if($chk){
+        	if(isset($_SESSION['user_id'])) {
 
-                header("Location: /usercart/$udd/");
+                $udd = $_SESSION['user_id'];
 
-            } else {
-            
-        		$cart = new Cart;
-        		$cart->product_id = $id;
-        		$cart->user_id = $_SESSION['user_id'];
-        		$cart->quantity = $_REQUEST['quan'];
+                $chk = Cart::checkProduct($id);
 
-        		$cart->save();
+                if($chk){
 
-                header("Location: /userbookpreview/$id/");
-            }
+                    header("Location: /usercart/$udd/");
 
-    	} else {
+                } else {
+                
+            		$cart = new Cart;
+            		$cart->product_id = $id;
+            		$cart->user_id = $_SESSION['user_id'];
+            		$cart->quantity = $_REQUEST['quan'];
 
-    		header("Location: /userlogin");
-    	}
+            		$cart->save();
+
+                    header("Location: /userbookpreview/$id/");
+                }
+
+        	} else {
+
+        		header("Location: /userlogin");
+        	}
+
+        } else {
+
+            echo $this->_blade->render('userbookpreview', ['review'=>Reviews::getReviewsId($id), 'prodid'=>Products::getProductsId($id), 'id'=>$id, 'totalItems'=> $this->_cartCount]);
+        }
     }
 }

@@ -1,9 +1,8 @@
 <?php $__env->startSection('browsertitle'); ?>userbookpreview <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
 
-    <!--  <?php if(isset($_SESSION['errmsg'])): ?>
-    <p class="global-error"><?php echo $_SESSION['errmsg']; ?></p>
-    <?php endif; ?> -->
+    
+    <?php if(isset($errors['quan'])): ?> <span class="err"><?php echo $errors['quan']; ?></span> <?php endif; ?>
     <div class="book-display">
      <div class="display-book" style="background: url(<?php echo $prodid->image; ?>) 
        no-repeat center; background-size: cover; width: 168px;

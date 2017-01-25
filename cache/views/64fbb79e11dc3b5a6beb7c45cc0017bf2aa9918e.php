@@ -11,11 +11,6 @@
         <h2 class="book-title"><?php echo $splash->product_name; ?></h2>
           <h3 class="book-author"><?php echo $splash->author_name; ?></h3>
             <h3 class="book-price">$<?php echo $splash->price; ?></h3></a>
-              <form action="/usercart/[i:id]/[i:id]/" method="POST">
-               <label for="book-amout">Quantity</label>
-               <input type="number" name="qty" class="book-amount text-field">
-               <input type="submit" class="def-button add-to-cart" name="addto" value="Add to Cart">
-              </form>
       </div>
       <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>          
     </div>                 

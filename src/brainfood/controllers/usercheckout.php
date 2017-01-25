@@ -16,7 +16,7 @@ class UserCheckout extends BaseController {
 
     protected $_blade;
     protected $_validation_rules = [
-         "phone" => "empty:|len:5:20|numeric:",
+         "phone" => "empty:|numeric:",
          "add" => "empty:|",
          "pcode" => "empty:|numeric:",
     ];
@@ -56,6 +56,9 @@ class UserCheckout extends BaseController {
 
             header("Location: /usercatalogue");
 
+        } else {
+
+            echo $this->_blade->render('usercheckout', ['cartlist'=>Cart::cartTable($id), 'prodid'=>Products::getProductsId($id), 'id'=>$id, 'totalItems'=> $this->_cartCount,'totalPrice'=> Cart::getTotal($id), 'errors'=>$error]);
         }
 
     }

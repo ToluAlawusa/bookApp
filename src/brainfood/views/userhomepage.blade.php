@@ -13,11 +13,6 @@
         <h2 class="book-title">{!! $splash->product_name !!}</h2>
           <h3 class="book-author">{!! $splash->author_name !!}</h3>
             <h3 class="book-price">${!! $splash->price !!}</h3></a>
-              <form action="/usercart/[i:id]/[i:id]/" method="POST">
-               <label for="book-amout">Quantity</label>
-               <input type="number" name="qty" class="book-amount text-field">
-               <input type="submit" class="def-button add-to-cart" name="addto" value="Add to Cart">
-              </form>
       </div>
       @endforeach          
     </div>                 
