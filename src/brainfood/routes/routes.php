@@ -11,3 +11,11 @@ $router->map( 'POST', '/userlogin', 'Brainfood\\controllers\\UserLogin@doUserLog
 // route responsible for showing registration page and doing the user's registration
 $router->map( 'GET', '/userregistration', 'Brainfood\\controllers\\UserRegistration@showUserRegister', 'showUserRegister');
 $router->map( 'POST', '/userregistration', 'Brainfood\\controllers\\UserRegistration@doUserRegister', 'doUserRegister');
+
+// route resposible for showing the catalogue and showing the catalogue by categories
+$router->map( 'GET', '/usercatalogue', 'Brainfood\\controllers\\UserCatalogue@showUserCatalogue', 'showUserCatalogue');
+$router->map( 'GET', '/usercatalogue/[i:id]/', 'Brainfood\\controllers\\UserCatalogue@showCategories', 'showCategories');
+
+// route responsible for showing book preview and adding comments to book displayed
+$router->map( 'GET', '/userbookpreview/[i:id]/', 'Brainfood\\controllers\\UserBookPreview@showBookPreview', 'showBookPreview');
+$router->map( 'POST', '/userbookpreview/[i:id]/', 'Brainfood\\controllers\\UserBookPreview@doAddComments', 'doAddComments');
